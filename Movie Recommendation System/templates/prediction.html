@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendations</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/bootstrap.css')}}">
+</head>
+<body>
+<div class="bg-info" align="center">
+	<h2>Since you have seen: </h2>
+	</div>
+	
+{% for table in context.watched_movies_table %}
+            {{context.watched_movies_titles[loop.index]}}
+            {{ table|safe }}
+{% endfor %}
+
+<div class="bg-info" align="center">
+	<h2>Top Recommendations for you</h2>
+	</div>
+	
+{% for table in context.rec_movies_table %}
+            {{context.rec_movies_titles[loop.index]}}
+            {{ table|safe }}
+{% endfor %}
+
+<a  href="http://127.0.0.1:5000">Go back!!</a>
+</body>
+</html>
